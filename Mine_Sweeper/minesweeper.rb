@@ -1,4 +1,5 @@
 require_relative "board.rb"
+require "yaml"
 require "byebug"
 
 
@@ -42,12 +43,30 @@ class MineSweep
 		pos
 	end
 
+	def load_game
+		puts "please enter the name of the game you wish to load: "
+		file_name = gets.chomp
+		load_board = YAML.load(File.read(file_name))
+		@board = load_board
+	end
+
 	def take_turn
-		system("clear")
+		puts "enter 's' to save a game, 'l' to load a game."
 		@board.render
 		move_type = get_move_type
+		if move_type =='l' || move_type == 's'
+			if move_type == 's'
+				@board.save
+				return
+			else
+				load_game
+				return
+			end
+		end
 		pos = get_valid_pos
-		move_type == 'r' ? @board.reveal(pos) : @board.flag(pos)
+		@board.reveal(pos) if move_type == 'r'
+		@board.flag(pos) if move_type == 'f'
+		system("clear")
 	end
 
 	def game_over?
@@ -73,7 +92,8 @@ class MineSweep
 	end
 
 	def valid_move_type?(move)
-		move == 'r' || move == 'f'
+		move == 'r' || move == 'f' || 
+		move == 's' || move == 'l'
 	end
 
 	def parse_pos(pos)

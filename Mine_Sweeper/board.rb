@@ -1,4 +1,5 @@
 require_relative "tile.rb"
+require "yaml"
 
 class Board
 	attr_reader :grid
@@ -85,6 +86,13 @@ class Board
 			return true
 		end
 		false
+	end
+
+	def save
+		puts "please enter the name of the file to save to: "
+		file_name = gets.chomp + ".yml"
+		yaml_board = self.to_yaml
+		File.open(file_name, "w") { |file| file.write(yaml_board) }
 	end
 
 	### Helper Fxns ###
