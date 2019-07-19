@@ -7,7 +7,7 @@ module Stepable
 	end
 
 	def move_difs
-		raise NotImplementedError.new("movedifs has not been implemented by subclass")
+		raise NotImplementedError.new("move_difs has not been implemented by subclass")
 	end
 
 	private

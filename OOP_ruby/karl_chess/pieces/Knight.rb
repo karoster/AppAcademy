@@ -8,4 +8,8 @@ class Knight < Piece
 		color == :white ? "N" : "n"
 	end
 
+	def move_difs
+		[[1,2], [2,1], [-1,2], [2,-1], [-1,-2], [-2,-1], [1,-2], [-2,1]]
+	end
+
 end

@@ -14,10 +14,6 @@ module Slideable
 	def check_direction(dir)
 		directional_moves = []
 		cur_pos = pos
-		#p cur_pos
-		
-		#p dir
-
 		loop do
 			curx, cury = cur_pos[0] + dir[0], cur_pos[1] + dir[1]
 			cur_pos = [curx, cury]
