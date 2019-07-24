@@ -2,7 +2,7 @@
 require_relative "./pieces/Included.rb"
 
 class Board
-
+	attr_accessor :board
 
 	def initialize(filled = true)
 		@null_piece = NullPiece.instance
@@ -32,10 +32,16 @@ class Board
 	def move_piece(start_pos, end_pos)
 		raise ArgumentError.new("no piece at start pos") if empty?(start_pos)
 		piece = self[start_pos]
-		raise ArgumentError.new("invalid end position") unless self.valid_pos?(end_pos)
 		raise ArgumentError.new("That is an invalid move") unless piece.moves.include?(end_pos)
+		raise ArgumentError.new("You can't put yourself in check!") unless piece.valid_moves.include?(end_pos)
+
+		move_piece!(start_pos,end_pos)
+	end
+	def move_piece!(start_pos, end_pos)
+		raise ArgumentError.new("invalid end position") unless self.valid_pos?(end_pos)
+
 		self[start_pos].pos = end_pos
-		self[start_pos], self[end_pos] = @null_piece, piece
+		self[start_pos], self[end_pos] = @null_piece, self[start_pos]
 	end
 
 	def empty?(pos)
@@ -56,6 +62,8 @@ class Board
 
 	end
 
+
+
 	def fill_pawns(color)
 		row_idx = color == :white ? 6 : 1
 		8.times do |col_idx|
@@ -72,6 +80,37 @@ class Board
 			fill_pawns(color)
 		end
 		@board
+	end
+
+	def pieces
+		@board.flatten.reject(&:empty?)
+	end
+
+	def find_king(color)
+		pieces.each do |sq|
+			return sq.pos if sq.class == King && sq.color == color
+		end
+		raise "No kings found..."
+		nil
+	end
+
+	def in_check?(color)
+		king_pos = find_king(color)
+		enemies = @board.flatten.select {|sq| !sq.empty? && sq.color != color }
+		enemies.any? {|sq| sq.moves.include?(king_pos) }
+	end
+
+	def dup
+		duped = Board.new(false)
+		pieces.each do |piece|
+			piece.class.new(piece.pos, duped, piece.color)
+		end
+		duped
+	end
+
+	def check_mate?(color)
+		piece_color = pieces.select{ |piece| piece.color == color }
+		!piece_color.any?{ |piece| piece.valid_moves.length > 0 }
 	end
 
 end

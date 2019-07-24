@@ -8,4 +8,8 @@ class King < Piece
 		color == :white ? "K" : "k"
 	end
 
+	def move_difs
+		[[1,0],[0,1],[1,1],[-1,0],[-1,-1],[0,-1],[1,-1],[-1,1]]		
+	end
+
 end

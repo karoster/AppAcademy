@@ -1,5 +1,6 @@
 require_relative "./Slideable.rb"
 require_relative "./Stepable.rb"
+require "colorize"
 
 class Piece
 	attr_reader :board, :color
@@ -14,15 +15,35 @@ class Piece
 	end
 
 	def to_s
+		return color == :white ? " #{symbol} ".red : " #{symbol} ".black 
 		" #{symbol} "
 	end
 
 	def symbol
-		
+				
 		raise "Not implemented"
 	end
 
 	def empty?
 		false
 	end
+
+	def move_into_check?(end_pos)
+		copy = @board.dup
+		copy.move_piece!(pos, end_pos)
+		copy.in_check?(color)
+	end
+
+	def valid_moves
+		moves.reject do |move|
+			move_into_check?(move)
+		end
+		
+	end
+
+	def inspect
+		self.to_s
+	end
+
+
 end
