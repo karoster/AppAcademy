@@ -1,0 +1,37 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add --dev webpack-dev-server
+
+PATH: 
+  /home/karl/.rvm/gems/ruby-2.5.1/bin:/home/karl/.rvm/gems/ruby-2.5.1@global/bin:/home/karl/.rvm/rubies/ruby-2.5.1/bin:/home/karl/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/WindowsApps/TheDebianProject.DebianGNULinux_1.1.7.0_x64__76v4gfsz19hv4:/mnt/c/Program Files (x86)/Intel/iCLS Client/:/mnt/c/Program Files/Intel/iCLS Client/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/Git/cmd:/mnt/c/Ruby25-x64/bin:/mnt/c/Users/lildu/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/lildu/AppData/Local/Programs/Microsoft VS Code/bin:/home/karl/.rvm/bin
+
+Yarn version: 
+  1.19.1
+
+Node version: 
+  10.15.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com registry.yarnpkg.com:443
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:57:26)
+
+npm manifest: 
+  {
+    "name": "RedditClone",
+    "private": true,
+    "dependencies": {
+      "@rails/ujs": "^6.0.0-alpha",
+      "turbolinks": "^5.2.0",
+      "@rails/activestorage": "^6.0.0-alpha",
+      "@rails/actioncable": "^6.0.0-alpha"
+    },
+    "version": "0.1.0"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

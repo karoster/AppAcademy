@@ -1,0 +1,38 @@
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |error| %>
+            <li> <%= error %></li>
+        <% end %>
+        
+    </ul>
+<% end %>
+    
+
+<% if action == :edit %>
+    <% action_url = sub_url(sub_val) %>
+<% else %>    
+    <% action_url = subs_url %>
+<% end %>
+
+
+
+<form action="<%= action_url %>" method="POST">
+    <%= auth_token %>
+    <% if action == :edit %>
+      <input type="hidden" name="_method" value="PATCH">
+    <% end %>
+
+    <label for="sub_title">Title:</label>
+    <br>
+    <input id="sub_title" type="text" name="sub[title]" value="<%= sub_val.title %>">
+    <br>
+
+    <label for="sub_descrip">Description:</label>
+    <br>
+    <textarea name="sub[description]" id="sub_descrip"><%= sub_val.description %></textarea>
+    <br>
+
+    <input type="submit" value="Submit">
+
+
+</form>

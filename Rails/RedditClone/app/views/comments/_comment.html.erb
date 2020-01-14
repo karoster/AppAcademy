@@ -1,0 +1,8 @@
+
+<li> <%= parent.author.username %>: <%= link_to parent.content, comment_url(parent) %>, created at: <%= parent.created_at %></li>
+
+<ul>
+    <% @comments[parent.id].each do |c2| %>
+        <%= render 'comments/comment', parent: c2 %>
+    <% end %>
+</ul>

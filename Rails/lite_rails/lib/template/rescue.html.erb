@@ -1,0 +1,21 @@
+
+<body>
+
+    <h1>ERROR ( '<%= e.class %>' ):</h1>
+        <%= e.class %>
+        <p><%= e.message %></p>
+
+
+    <h2>Stack Trace:</h2>
+    <ul>
+        <% e.backtrace.each do |stack_ele| %>
+            <li><%= stack_ele %></li>
+        <% end %>
+        
+    </ul>
+
+    <h2>Exception Preview:</h2>
+
+    <p>dont know how!</p>
+
+</body>

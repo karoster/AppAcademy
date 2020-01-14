@@ -1,0 +1,37 @@
+<% if flash.now[:errors] %>
+    <ul>
+        <% flash.now[:errors].each do |error| %>
+            <li> <%= error %></li>
+        <% end %>
+        
+    </ul>
+<% end %>
+    
+
+<% if action == :edit %>
+    <% action_url = comment_url(comment) %>
+<% else %>    
+    <% action_url = comments_url %>
+<% end %>
+
+
+
+<form action="<%= action_url %>" method="POST">
+    <%= auth_token %>
+    <% if action == :edit %>
+      <input type="hidden" name="_method" value="PATCH">
+    <% end %>
+
+    <input type="hidden" name="comment[post_id]" value="<%=comment.post_id %>">
+
+    <label for="comment_content">Content:</label>
+    <br>
+    <textarea name="comment[content]" id="comment_content"><%= comment.content %></textarea>
+    <br>
+
+    
+    
+    <input type="submit" value="Submit">
+
+
+</form>

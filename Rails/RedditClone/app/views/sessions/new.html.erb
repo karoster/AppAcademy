@@ -1,0 +1,26 @@
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+
+
+<h1>Sign In!</h1>
+
+<form action="<%= session_url %>" method="POST">
+    <%= auth_token %>
+
+    <label for="user_field">Username:</label>
+    <input type="text" name="user[username]">
+
+    <br>
+    <label for="pass_field">Password:</label>
+    <input type="text" name="user[password]">
+    <br>
+
+    <input type="submit" value="Sign In">
+
+</form>
