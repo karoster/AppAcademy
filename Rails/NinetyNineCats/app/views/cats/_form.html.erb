@@ -1,0 +1,65 @@
+<!--
+differences:
+	action_url  (solved with if statement)
+	input type=hidden...( solved with if statement)
+	prefilling forms with value (solved with dummy cat)
+	radio button (solved with dummy cat)
+	show button
+
+
+
+-->
+
+
+<%if action == :edit%>
+	<%action_url = cat_url(cat.id)%>
+<%else%>
+	<%action_url = cats_url %>
+<%end%>
+
+
+
+<form action="<%= action_url %>", method="post">
+
+	<% if action == :edit %>
+		<input type="hidden" name="_method" value="PATCH">
+	<% end %>
+
+	<label for="cat_name">Name</label>
+	<br>
+	<input id="cat_name" type="text" name="cat[name]" value="<%= cat.name %>">
+	<br>
+
+	<label for="birthday">Date of Birth</label>
+	<br>
+	<input id="birthday" type="date" name="cat[birth_date]", value="<%= cat.birth_date %>">
+	<br>
+	 
+	<label for="cat_sex">Sex</label>
+	<br>
+	<input id="cat_sex" type="radio" name="cat[sex]" value="M" <%= "checked" if cat.sex == 'M' %> > Male
+	<input id="cat_sex" type="radio" name="cat[sex]" value="F" <%= "checked" if cat.sex == 'F'%> > Female
+	<br>
+
+
+	<label for="cat_color">Color</label>
+	<br>
+	<select id="cat_color" name="cat[color]">
+
+		<option disabled <%= cat.color ? "": "selected" %> >--Select a color--</option>
+		<% cat.get_colors.each do |color| %>
+			<option value="<%=color%>" <%= color == cat.color ? "selected" : "" %>> <%= color %> </option> 
+		<% end %>
+
+	</select>
+	<br>
+
+
+
+	<label for="description">Description</label>
+	<br>
+	<textarea id="description" name="cat[description]"><%= cat.description %></textarea>
+	<br>
+
+	<input type="submit" value=<%= action == :edit ? "update cat in list" : "add cat to list" %>>
+</form>

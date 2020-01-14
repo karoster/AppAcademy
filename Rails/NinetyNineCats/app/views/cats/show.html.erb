@@ -1,0 +1,42 @@
+<h1>Individual Cat!</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Cat Attributes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Attribute</td>
+            <td>Value</td>
+        </tr>
+        <tr>
+        	<td>Name</td>
+        	<td><%= @cat.name %></td>
+        </tr>
+        <tr>
+        	<td>Color</td>
+        	<td><%= @cat.color %></td>
+        </tr>
+        <tr>
+        	<td>Birth Date</td>
+        	<td><%= @cat.birth_date %></td>
+        </tr>
+        <tr>
+        	<td>age</td>
+        	<td><%= @cat.age %></td>
+        </tr>
+    </tbody>
+</table>
+
+<% @cat.rental_requests.order(start_date: :desc).each do |request| %>
+    <% next if request.status == 'DENIED' %>
+    <br><br>
+    Start: <%= request.start_date %>
+    <br>
+    End: <%= request.end_date %>
+    <br>
+    <%=render 'req', request: request %>
+
+<% end %>
