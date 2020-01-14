@@ -1,0 +1,37 @@
+.content-header {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    background: url(./../images/cats.jpg);
+}
+
+.content-header h1 {
+    color: white;
+    text-shadow: 1px 1px 10px black;
+    font-size: 36px;
+    position: absolute;
+    top: 138px;
+    right: 363px;
+    font-weight: 300;
+}
+
+.add-friend-button {
+    position: absolute;
+    z-index: 10;
+    top: 138px;
+    right: 20px;
+    background: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-weight: bold;
+}
+
+.add-friend-button:hover {
+    background-color: #eee;
+}
+    
+

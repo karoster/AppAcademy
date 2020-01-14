@@ -1,0 +1,53 @@
+
+.profile-picture {
+    margin-top: -120px;
+    display: block;
+    position: relative;
+    background: #000;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+
+
+.profile-info {
+    margin: 20px 0px;
+
+}
+
+.profile-info h2 {
+    font-weight: 700;
+    font-size: 24px;
+
+}
+
+.profile-info p {
+    margin: 20px 0px;
+
+}
+
+.profile-nav {
+    margin: 20px 0;
+}
+
+.profile-nav a {
+    padding: 5px;
+    display: block;
+    font-weight: 700;
+
+}
+
+.profile-nav li {
+    border-top: 1px solid #ccc;
+}
+
+.profile-nav li:last-of-type{
+    border-bottom: 1px solid #ccc;
+
+}
+
+.profile-nav a:hover {
+    background: #eee;
+
+}
+
