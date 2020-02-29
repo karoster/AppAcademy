@@ -1,6 +1,6 @@
 
 # App Academy Course Work
-This repository contains select projects that I did while working through the App Academy course. I used these projects--along with AppAcademy's open-source supplementary material (videos, homeworks, lectures)--to teach myself to work efficiently in Ruby/Rails, Javascript, Postgresql and React. More abstractly than languages and frameworks, I taught myself some of the overarching standard practices of software engineering using these resources.
+This repository contains select projects that I did while working through the App Academy bootcamp. I used these projects--along with AppAcademy's open-source supplementary material (videos, homeworks, lectures)--to teach myself to work efficiently in Ruby/Rails, Javascript, Postgresql and React. More abstractly than languages and frameworks, I taught myself some of the overarching standard practices of software engineering using these resources.
 
 Below is a summary, not in chronological order, of the projects in each subfolder:
 
